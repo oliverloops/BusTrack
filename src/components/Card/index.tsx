@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, StyleSheet, Platform} from 'react-native';
 
-function Card() {
+function Card({title}: {item: string}) {
   return (
     <View style={styles.container}>
-      <Text>This is a card</Text>
+      <Text>{title}</Text>
     </View>
   );
 }
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     height: 212,
     borderRadius: 16,
     backgroundColor: '#fff',
-    marginHorizontal: 10,
+    marginLeft: '5%',
     ...Platform.select({
       ios: {
         shadowColor: '#000',

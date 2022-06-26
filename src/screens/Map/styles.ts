@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     overflow: 'hidden',
-    marginVertical: 20,
+    marginVertical: 25,
   },
   mapContainer: {
     width: '100%',
@@ -22,8 +22,7 @@ const styles = StyleSheet.create({
 const carousel = StyleSheet.create({
   container: {
     width: '100%',
-    marginTop: screenHeight * 0.5,
-    paddingHorizontal: '5%',
+    transform: [{translateY: screenHeight - screenHeight * 0.44}],
   },
   layout: {
     flexDirection: 'row',

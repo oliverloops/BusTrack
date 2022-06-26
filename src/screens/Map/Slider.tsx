@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ScrollView, Dimensions} from 'react-native';
+import {View, Dimensions} from 'react-native';
 import {interpolate, Extrapolate} from 'react-native-reanimated';
 import Carousel from 'react-native-reanimated-carousel';
 //Styles
@@ -8,6 +8,13 @@ import {carousel} from './styles';
 import Card from '../../components/Card';
 
 const screenWidth = Dimensions.get('window').width;
+
+const sampleData: any[] = [
+  {key: 0, route: 'Ruta 1'},
+  {key: 1, route: 'Ruta 2'},
+  {key: 2, route: 'Ruta 3'},
+  {key: 3, route: 'Ruta 4'},
+];
 
 function Slider() {
   const parallaxScrollingScale = 0.82;
@@ -26,7 +33,7 @@ function Slider() {
     const translateX = interpolate(
       -value,
       [-1, 0, 1],
-      [screenWidth * 0.85, 0, -screenWidth],
+      [screenWidth * 0.58, 0, -screenWidth],
     );
 
     const scale = interpolate(
@@ -49,11 +56,16 @@ function Slider() {
 
   return (
     <View style={carousel.container}>
-      <View style={carousel.layout}>
-        <Card />
-        <Card />
-        <Card />
-      </View>
+      <Carousel
+        snapEnabled={true}
+        width={screenWidth}
+        height={215}
+        pagingEnabled
+        windowSize={3}
+        customAnimation={animationStyle}
+        data={sampleData}
+        renderItem={({item}) => <Card key={item.key} title={item.route} />}
+      />
     </View>
   );
 }
