@@ -6,8 +6,7 @@ import {styles} from './styles';
 //Layout comps.
 import Header from '../../layout/Header';
 //UI comps.
-import Card from '../../components/Card';
-import Carousel from './Carousel';
+import Slider from './Slider';
 
 function Map({navigation}: {navigation: any}) {
   return (
@@ -32,7 +31,7 @@ function Content() {
           zoomLevel={4}
           centerCoordinate={[-101.6826, 21.1212]}
         />
-        <Carousel />
+        <Slider />
       </MapboxGL.MapView>
     </View>
   );
