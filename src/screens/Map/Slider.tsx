@@ -10,10 +10,10 @@ import Card from '../../components/Card';
 const screenWidth = Dimensions.get('window').width;
 
 const sampleData: any[] = [
-  {key: 0, route: 'Ruta 1'},
-  {key: 1, route: 'Ruta 2'},
-  {key: 2, route: 'Ruta 3'},
-  {key: 3, route: 'Ruta 4'},
+  {key: 0, route: 'Destino 1', transport: 'Autobus'},
+  {key: 1, route: 'Destino 2', transport: 'Pecera'},
+  {key: 2, route: 'Destino 3', transport: 'Autobus'},
+  {key: 3, route: 'Destino 4', transport: 'Pecera'},
 ];
 
 function Slider() {
@@ -57,6 +57,7 @@ function Slider() {
   return (
     <View style={carousel.container}>
       <Carousel
+        loop={false}
         snapEnabled={true}
         width={screenWidth}
         height={215}
@@ -64,7 +65,9 @@ function Slider() {
         windowSize={3}
         customAnimation={animationStyle}
         data={sampleData}
-        renderItem={({item}) => <Card key={item.key} title={item.route} />}
+        renderItem={({item}) => (
+          <Card key={item.key} title={item.route} transport={item.transport} />
+        )}
       />
     </View>
   );
